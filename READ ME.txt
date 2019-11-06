@@ -1,0 +1,48 @@
+Our application consist in sending and receiving emails from users.
+In order to run this application there are two conditions:
+
+1) If you are running this app whilst connected to our laptop, you only have to plug in your android phone to our laptop 
+and run from Android Studio. 
+
+2) If you are running it form your own laptop, you have to first configure this project on your own Android Studio version
+in order to be able to integrate Google Sign In Option to your app and login with your own email. 
+We have already included all the needed external libraries, but since Android Studio has a different SHA-1 (Secure Hash
+Algorithm) in every laptop, you would have to do a configuration in your own laptop. 
+In order to do this, follow this link :
+
+https://developers.google.com/identity/sign-in/android/start-integrating
+
+and click Configure a project :
+Project Name: signin
+Project Product name: Talking Buddy
+Package name: com.example.signin
+SHA-1 : On the right side of your Android Studio go to GRADLE. Click app -> Tasks -> android -> signingReport and your SHA -1
+will appear on your Run terminal. (Don't forget to change your configurations to app again, top part of your Android Studio, next to your device name).
+
+Next, in MainActivity2.java, in this function:
+
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("164440649285-bnlj0r0scdhn0rpl7un2gbbk94cmenki.apps.googleusercontent.com")
+                .requestServerAuthCode("164440649285-bnlj0r0scdhn0rpl7un2gbbk94cmenki.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+
+in your requestIdToken and requestServerAuthCode you have to put your email client ID. They will appear after you finish your 
+project configuration you just have to copy it and paste it in between the quote marks. 
+
+Now you are ready to sign in. 
+
+For simplicity we would ask you to login with an email made specifically for this project since in it we have already made 
+our Two Factor Authentication, have allowed less secure apps, and also have enabled IMAP and POP functions to retrieve and send emails.
+Due to the fact that GMAIL is very strict when it comes to security, we had to do all these steps in our gmail. 
+However, we absolutely DO NOT ADVICE YOU TO DO IT! This would make your gmail account more vunerable (due to allowing less seccure apps) and possibly put it at risk.
+
+Our Gmail Account 
+
+Email: computerproject714@gmail.com
+Password : computerproject1
+
+
+
